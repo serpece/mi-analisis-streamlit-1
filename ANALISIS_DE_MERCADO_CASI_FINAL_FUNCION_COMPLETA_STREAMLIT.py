@@ -12,16 +12,12 @@ def ejecutar_analisis_completo(ticker, periodo):
     import contextlib
 
     buffer = io.StringIO()
-    with contextlib.redirect_stdout(buffer):
-        import pandas as pd
-        import numpy as np
-        import matplotlib.pyplot as plt
-        import yfinance as yf
-        from sklearn.linear_model import LinearRegression
-        from datetime import datetime
-        import requests
-        from bs4 import BeautifulSoup
-        from textblob import TextBlob
+with contextlib.redirect_stdout(buffer):
+    df = descargar_datos(ticker, periodo)
+    sentimiento = analizar_noticias(ticker)
+    analizar_accion(df, sentimiento)
+
+return buffer.getvalue()
         
         
         def descargar_datos(ticker, periodo="5y"):
