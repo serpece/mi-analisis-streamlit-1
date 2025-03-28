@@ -31,6 +31,6 @@ with col2:
                 st.download_button(
                     label="📥 Descargar Informe",
                     data=f,
-                    file_name="scanner_global_plus.pdf",
+                    file_name="informe_global.pdf",
                     mime="application/pdf"
                 )
